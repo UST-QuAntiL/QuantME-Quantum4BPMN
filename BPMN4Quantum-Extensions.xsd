@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+        xmlns="http://quantme.org/bpmn4quantum"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://quantme.org/bpmn4quantum"
+        xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified">
+
+    <xsd:import namespace="http://www.omg.org/spec/BPMN/20100524/MODEL" schemaLocation="Semantic.xsd"/>
+
+    <xsd:annotation>
+        <xsd:documentation>
+            This XML Schema defines and documents BPMN 2.0 extension elements and
+            attributes introduced to support the QuantME extensions.
+        </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:element name="quantumComputationTask" type="tQuantumComputationTask" substitutionGroup="bpmn:flowElement"/>
+    <xsd:complexType name="tQuantumComputationTask">
+        <xsd:annotation>
+            <xsd:documentation>
+                Task type to abstractly define a quantum computation.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tTask">
+                <xsd:attribute name="algorithm" type="xsd:string" use="required"/>
+                <xsd:attribute name="provider" type="xsd:string" use="optional"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:element name="quantumCircuitCreationTask" type="tQuantumCircuitCreationTask"
+                 substitutionGroup="bpmn:flowElement"/>
+    <xsd:complexType name="tQuantumCircuitCreationTask">
+        <xsd:annotation>
+            <xsd:documentation>
+                Task type to create a QuantumDataObject to use it by other BPMN4Quantum tasks.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tTask">
+                <xsd:sequence>
+                    <xsd:element name="quantumCircuit" type="xsd:base64Binary" minOccurs="0" maxOccurs="1"/>
+                </xsd:sequence>
+                <xsd:attribute name="url" type="xsd:anyURI" use="optional"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:element name="dataPreparationTask" type="tDataPreparationTask"
+                 substitutionGroup="bpmn:flowElement"/>
+    <xsd:complexType name="tDataPreparationTask">
+        <xsd:annotation>
+            <xsd:documentation>
+                Task type to encode the input data into a quantum circuit.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tTask">
+                <xsd:attribute name="encodingScheme" type="xsd:string" use="required"/>
+                <xsd:attribute name="programmingLanguage" type="xsd:string" use="optional"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <!-- > TODO: OracleExpansionTask, QuantumDataObject, QuantumCircuitExecutionTask, ReadoutErrorMitigationTask<!-->
+
+</xsd:schema>
