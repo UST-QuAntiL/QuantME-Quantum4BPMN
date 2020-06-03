@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema
-        xmlns="http://quantme.org/bpmn4quantum"
+        xmlns="http://quantme.org/quantum4bpmn"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-        targetNamespace="http://quantme.org/bpmn4quantum"
+        targetNamespace="http://quantme.org/quantum4bpmn"
         xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
         elementFormDefault="qualified"
         attributeFormDefault="unqualified">
@@ -36,7 +36,7 @@
     <xsd:complexType name="tQuantumCircuitCreationTask">
         <xsd:annotation>
             <xsd:documentation>
-                Task type to create a QuantumDataObject to use it by other BPMN4Quantum tasks.
+                Task type to create a QuantumDataObject to use it by other Quantum4BPMN tasks.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:complexContent>
