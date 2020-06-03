@@ -44,7 +44,7 @@
                 <xsd:sequence>
                     <xsd:element name="quantumCircuit" type="xsd:base64Binary" minOccurs="0" maxOccurs="1"/>
                 </xsd:sequence>
-                <xsd:attribute name="url" type="xsd:anyURI" use="optional"/>
+                <xsd:attribute name="url" type="xsd:string" use="optional"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
@@ -65,6 +65,80 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <!-- > TODO: OracleExpansionTask, QuantumDataObject, QuantumCircuitExecutionTask, ReadoutErrorMitigationTask<!-->
+    <xsd:element name="oracleExpansionTask" type="tOracleExpansionTask"
+                 substitutionGroup="bpmn:flowElement"/>
+    <xsd:complexType name="tOracleExpansionTask">
+        <xsd:annotation>
+            <xsd:documentation>
+                Task type to expand oracles of a quantum circuit by corresponding implementations.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tTask">
+                <xsd:sequence>
+                    <xsd:element name="oracleCircuit" type="xsd:base64Binary" minOccurs="0" maxOccurs="1"/>
+                </xsd:sequence>
+                <xsd:attribute name="programmingLanguage" type="xsd:string" use="required"/>
+                <xsd:attribute name="oracleId" type="xsd:string" use="required"/>
+                <xsd:attribute name="oracleFunction" type="xsd:string" use="optional"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:element name="quantumCircuitExecutionTask" type="tQuantumCircuitExecutionTask"
+                 substitutionGroup="bpmn:flowElement"/>
+    <xsd:complexType name="tQuantumCircuitExecutionTask">
+        <xsd:annotation>
+            <xsd:documentation>
+                Task type to execute a quantum circuit.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tTask">
+                <xsd:attribute name="programmingLanguage" type="xsd:string" use="required"/>
+                <xsd:attribute name="provider" type="xsd:string" use="optional"/>
+                <xsd:attribute name="qpu" type="xsd:string" use="optional"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:element name="readoutErrorMitigationTask" type="tReadoutErrorMitigationTask"
+                 substitutionGroup="bpmn:flowElement"/>
+    <xsd:complexType name="tReadoutErrorMitigationTask">
+        <xsd:annotation>
+            <xsd:documentation>
+                Task type to mitigate the readout error of a quantum circuit execution based on the error model of the
+                used quantum computer.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tTask">
+                <xsd:attribute name="unfoldingTechnique" type="xsd:string" use="required"/>
+                <xsd:attribute name="qpu" type="xsd:string" use="required"/>
+                <xsd:attribute name="maxAge" type="xsd:string" use="optional"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:element name="quantumDataObject" type="tQuantumDataObject"
+                 substitutionGroup="bpmn:flowElement"/>
+    <xsd:complexType name="tQuantumDataObject">
+        <xsd:annotation>
+            <xsd:documentation>
+                Extension of the BPMN data object to store all data related to a quantum circuit and its execution
+                environment.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tDataObject">
+                <xsd:sequence>
+                    <xsd:element name="quantumCircuit" type="xsd:base64Binary" minOccurs="0" maxOccurs="1"/>
+                </xsd:sequence>
+                <xsd:attribute name="circuitId" type="xsd:string" use="optional"/>
+                <xsd:attribute name="programmingLanguage" type="xsd:string" use="optional"/>
+                <xsd:attribute name="qpu" type="xsd:string" use="optional"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
 
 </xsd:schema>
