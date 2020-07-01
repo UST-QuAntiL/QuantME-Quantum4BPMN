@@ -42,7 +42,7 @@
         <xsd:complexContent>
             <xsd:extension base="bpmn:tTask">
                 <xsd:sequence>
-                    <xsd:element name="quantumCircuit" type="xsd:base64Binary" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="quantumCircuitCode" type="xsd:base64Binary" minOccurs="0" maxOccurs="1"/>
                 </xsd:sequence>
                 <xsd:attribute name="url" type="xsd:string" use="optional"/>
             </xsd:extension>
@@ -60,7 +60,7 @@
         <xsd:complexContent>
             <xsd:extension base="bpmn:tTask">
                 <xsd:attribute name="encodingScheme" type="xsd:string" use="required"/>
-                <xsd:attribute name="programmingLanguage" type="xsd:string" use="optional"/>
+                <xsd:attribute name="quantumProgrammingLanguage" type="xsd:string" use="optional"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
@@ -78,7 +78,7 @@
                 <xsd:sequence>
                     <xsd:element name="oracleCircuit" type="xsd:base64Binary" minOccurs="0" maxOccurs="1"/>
                 </xsd:sequence>
-                <xsd:attribute name="programmingLanguage" type="xsd:string" use="required"/>
+                <xsd:attribute name="quantumProgrammingLanguage" type="xsd:string" use="required"/>
                 <xsd:attribute name="oracleId" type="xsd:string" use="required"/>
                 <xsd:attribute name="oracleFunction" type="xsd:string" use="optional"/>
             </xsd:extension>
@@ -95,7 +95,7 @@
         </xsd:annotation>
         <xsd:complexContent>
             <xsd:extension base="bpmn:tTask">
-                <xsd:attribute name="programmingLanguage" type="xsd:string" use="required"/>
+                <xsd:attribute name="quantumProgrammingLanguage" type="xsd:string" use="required"/>
                 <xsd:attribute name="provider" type="xsd:string" use="optional"/>
                 <xsd:attribute name="qpu" type="xsd:string" use="optional"/>
             </xsd:extension>
@@ -136,7 +136,7 @@
                 </xsd:sequence>
                 <xsd:attribute name="circuitId" type="xsd:string" use="optional"/>
                 <xsd:attribute name="programmingLanguage" type="xsd:string" use="optional"/>
-                <xsd:attribute name="qpu" type="xsd:string" use="optional"/>
+                <xsd:attribute name="executionResult" type="xsd:string" use="optional"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
