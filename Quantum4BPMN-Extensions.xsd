@@ -78,7 +78,6 @@
                 <xsd:sequence>
                     <xsd:element name="oracleCircuit" type="xsd:base64Binary" minOccurs="0" maxOccurs="1"/>
                 </xsd:sequence>
-                <xsd:attribute name="quantumProgrammingLanguage" type="xsd:string" use="required"/>
                 <xsd:attribute name="oracleId" type="xsd:string" use="required"/>
                 <xsd:attribute name="oracleFunction" type="xsd:string" use="optional"/>
             </xsd:extension>
@@ -95,9 +94,9 @@
         </xsd:annotation>
         <xsd:complexContent>
             <xsd:extension base="bpmn:tTask">
-                <xsd:attribute name="quantumProgrammingLanguage" type="xsd:string" use="required"/>
                 <xsd:attribute name="provider" type="xsd:string" use="optional"/>
                 <xsd:attribute name="qpu" type="xsd:string" use="optional"/>
+                <xsd:attribute name="shots" type="xsd:string" use="optional"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
