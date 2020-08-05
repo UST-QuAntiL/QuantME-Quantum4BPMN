@@ -79,7 +79,7 @@
                     <xsd:element name="oracleCircuit" type="xsd:base64Binary" minOccurs="0" maxOccurs="1"/>
                 </xsd:sequence>
                 <xsd:attribute name="oracleId" type="xsd:string" use="required"/>
-                <xsd:attribute name="oracleFunction" type="xsd:string" use="optional"/>
+                <xsd:attribute name="oracleUrl" type="xsd:string" use="optional"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
@@ -119,13 +119,12 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="quantumDataObject" type="tQuantumDataObject"
+    <xsd:element name="quantumCircuitObject" type="tQuantumCircuitObject"
                  substitutionGroup="bpmn:flowElement"/>
-    <xsd:complexType name="tQuantumDataObject">
+    <xsd:complexType name="tQuantumCircuitObject">
         <xsd:annotation>
             <xsd:documentation>
-                Extension of the BPMN data object to store all data related to a quantum circuit and its execution
-                environment.
+                Extension of the BPMN data object to store all data related to a quantum circuit.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:complexContent>
@@ -133,9 +132,24 @@
                 <xsd:sequence>
                     <xsd:element name="quantumCircuit" type="xsd:base64Binary" minOccurs="0" maxOccurs="1"/>
                 </xsd:sequence>
-                <xsd:attribute name="circuitId" type="xsd:string" use="optional"/>
                 <xsd:attribute name="programmingLanguage" type="xsd:string" use="optional"/>
-                <xsd:attribute name="executionResult" type="xsd:string" use="optional"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+        
+    <xsd:element name="quantumDataObject" type="tQuantumDataObject"
+                 substitutionGroup="bpmn:flowElement"/>
+    <xsd:complexType name="tQuantumDataObject">
+        <xsd:annotation>
+            <xsd:documentation>
+                Extension of the BPMN data object to store results of a quantum computation.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tDataObject">
+                <xsd:sequence>
+                    <xsd:element name="executionResult" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
