@@ -31,12 +31,12 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="quantumCircuitCreationTask" type="tQuantumCircuitCreationTask"
+    <xsd:element name="quantumCircuitLoadingTask" type="tQuantumCircuitLoadingTask"
                  substitutionGroup="bpmn:flowElement"/>
-    <xsd:complexType name="tQuantumCircuitCreationTask">
+    <xsd:complexType name="tQuantumCircuitLoadingTask">
         <xsd:annotation>
             <xsd:documentation>
-                Task type to create a QuantumDataObject to use it by other Quantum4BPMN tasks.
+                Task type to create a QuantumCircuitObject to use it by other Quantum4BPMN tasks.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:complexContent>
