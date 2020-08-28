@@ -137,9 +137,9 @@
         </xsd:complexContent>
     </xsd:complexType>
         
-    <xsd:element name="quantumDataObject" type="tQuantumDataObject"
+    <xsd:element name="quantumDataObject" type="tResultObject"
                  substitutionGroup="bpmn:flowElement"/>
-    <xsd:complexType name="tQuantumDataObject">
+    <xsd:complexType name="tResultObject">
         <xsd:annotation>
             <xsd:documentation>
                 Extension of the BPMN data object to store results of a quantum computation.
