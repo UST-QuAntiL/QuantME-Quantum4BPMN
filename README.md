@@ -11,6 +11,6 @@ For this the following new elements were introduced:
 * _ReadoutErrorMitigationTask_: New task type to mitigate the influence of measurement errors for a quantum computation
 * _QuantumCircuitObject_: DataObject extension to transfer data about a quantum circuit between the different Quantum4BPMN tasks
 * _ResultObject_: DataObject extension to transfer results of a quantum computation
-* _QuantumHardwareSelectionSubprocess_: New sub-process to enable automatic quantum hardware selection for all contained tasks during workflow runtime depending on the properties of circuit within the ingoing QuantumCircuitObject (e.g., depth, width)
+* _QuantumHardwareSelectionSubprocess_: New sub-process to enable automatic quantum hardware selection for all contained tasks during workflow runtime depending on the properties of the circuit within the ingoing QuantumCircuitObject (e.g., depth, width)
 
 The XML Schema definition of the Quantum4BPMN extension can be found [here](https://github.com/wederbn/QuantME-BPMN4Quantum/blob/master/Quantum4BPMN-Extensions.xsd).
