@@ -154,4 +154,21 @@
         </xsd:complexContent>
     </xsd:complexType>
 
+    <xsd:element name="quantumHardwareSelectionSubprocess" type="tQuantumHardwareSelectionSubprocess"
+                 substitutionGroup="bpmn:flowElement"/>
+    <xsd:complexType name="tQuantumHardwareSelectionSubprocess">
+        <xsd:annotation>
+            <xsd:documentation>
+                Extension of the BPMN subprocess supporting automatic quantum hardware selection for the contained tasks.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tSubProcess">
+                <xsd:attribute name="providers" type="xsd:string" use="optional"/>
+                <xsd:attribute name="simulatorAllowed" type="xsd:boolean" use="required"/>
+                <xsd:attribute name="selectionStrategy" type="xsd:string" use="required"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
 </xsd:schema>
