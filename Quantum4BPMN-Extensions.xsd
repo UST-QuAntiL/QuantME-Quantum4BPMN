@@ -274,7 +274,7 @@
     <xsd:complexType name="tResultEvaluationObject">
         <xsd:annotation>
             <xsd:documentation>
-                Extension of the BPMN data object to store all data related to a execution result evaluation.
+                Extension of the BPMN data object to store all data related to an execution result evaluation.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:complexContent>
