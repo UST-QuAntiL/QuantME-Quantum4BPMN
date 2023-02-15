@@ -170,8 +170,8 @@
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-	
-	<xsd:element name="circuitCuttingSubprocess" type="tCircuitCuttingSubprocess"
+
+    <xsd:element name="circuitCuttingSubprocess" type="tCircuitCuttingSubprocess"
                  substitutionGroup="bpmn:flowElement"/>
     <xsd:complexType name="tCircuitCuttingSubprocess">
         <xsd:annotation>
@@ -184,11 +184,10 @@
                 <xsd:attribute name="cuttingMethod" type="xsd:string" use="required"/>
                 <xsd:attribute name="maxSubCircuitWidth" type="xsd:string" use="optional"/>
                 <xsd:attribute name="maxNumberOfCuts" type="xsd:string" use="optional"/>
-				<xsd:attribute name="maxNumSubCircuits" type="xsd:string" use="optional"/>
+                <xsd:attribute name="maxNumSubCircuits" type="xsd:string" use="optional"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-
 
     <xsd:element name="parameterOptimizationTask" type="tParameterOptimizationTask"
                  substitutionGroup="bpmn:flowElement"/>
@@ -203,11 +202,10 @@
                 <xsd:attribute name="optimizer" type="xsd:string" use="required"/>
                 <xsd:attribute name="maxIterations" type="xsd:string" use="optional"/>
                 <xsd:attribute name="toleranceThreshold" type="xsd:string" use="optional"/>
-				<xsd:attribute name="learningRate" type="xsd:string" use="optional"/>
+                <xsd:attribute name="learningRate" type="xsd:string" use="optional"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-
 
     <xsd:element name="variationalQuantumAlgorithmTask" type="tVariationalQuantumAlgorithmTask"
                  substitutionGroup="bpmn:flowElement"/>
@@ -222,17 +220,17 @@
                 <xsd:attribute name="quantumAlgorithm" type="xsd:string" use="required"/>
                 <xsd:attribute name="algorithmicProblem" type="xsd:string" use="required"/>
                 <xsd:attribute name="qpu" type="xsd:string" use="required"/>
-				<xsd:attribute name="provider" type="xsd:string" use="required"/>
-				<xsd:attribute name="optimizer" type="xsd:string" use="required"/>
-				<xsd:attribute name="objectiveFunction" type="xsd:string" use="required"/>
+                <xsd:attribute name="provider" type="xsd:string" use="required"/>
+                <xsd:attribute name="optimizer" type="xsd:string" use="required"/>
+                <xsd:attribute name="objectiveFunction" type="xsd:string" use="required"/>
                 <xsd:attribute name="mitigationMethod" type="xsd:string" use="optional"/>
                 <xsd:attribute name="cuttingMethod" type="xsd:string" use="optional"/>
-				<xsd:attribute name="warmStartingMethod" type="xsd:string" use="optional"/>
+                <xsd:attribute name="warmStartingMethod" type="xsd:string" use="optional"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-	
-	<xsd:element name="resultEvaluationTask" type="tResultEvaluationTask"
+
+    <xsd:element name="resultEvaluationTask" type="tResultEvaluationTask"
                  substitutionGroup="bpmn:flowElement"/>
     <xsd:complexType name="tResultEvaluationTask">
         <xsd:annotation>
@@ -245,12 +243,12 @@
                 <xsd:attribute name="objectiveFunction" type="xsd:string" use="required"/>
                 <xsd:attribute name="costFunction" type="xsd:string" use="required"/>
                 <xsd:attribute name="eta" type="xsd:string" use="optional"/>
-				<xsd:attribute name="alpha" type="xsd:string" use="optional"/>
+                <xsd:attribute name="alpha" type="xsd:string" use="optional"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-	
-	<xsd:element name="warmStartingTask" type="tWarmStartingTask"
+
+    <xsd:element name="warmStartingTask" type="tWarmStartingTask"
                  substitutionGroup="bpmn:flowElement"/>
     <xsd:complexType name="tWarmStartingTask">
         <xsd:annotation>
@@ -263,13 +261,13 @@
                 <xsd:attribute name="warmStartingMethod" type="xsd:string" use="required"/>
                 <xsd:attribute name="quantumAlgorithm" type="xsd:string" use="required"/>
                 <xsd:attribute name="classicalAlgorithm" type="xsd:string" use="optional"/>
-				<xsd:attribute name="repetitions" type="xsd:string" use="optional"/>
-				<xsd:attribute name="rounded" type="xsd:string" use="optional"/>
+                <xsd:attribute name="repetitions" type="xsd:string" use="optional"/>
+                <xsd:attribute name="rounded" type="xsd:string" use="optional"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-	
-	<xsd:element name="resultEvaluationObject" type="tResultEvaluationObject"
+
+    <xsd:element name="resultEvaluationObject" type="tResultEvaluationObject"
                  substitutionGroup="bpmn:flowElement"/>
     <xsd:complexType name="tResultEvaluationObject">
         <xsd:annotation>
@@ -283,13 +281,13 @@
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-	
-	<xsd:element name="initialStateObject" type="tInitialStateObject"
+
+    <xsd:element name="initialStateObject" type="tInitialStateObject"
                  substitutionGroup="bpmn:flowElement"/>
     <xsd:complexType name="tInitialStateObject">
         <xsd:annotation>
             <xsd:documentation>
-                Extension of the BPMN data object to store all data related to a execution result evaluation.
+                Extension of the BPMN data object to store all data related to a precomputed initial state.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:complexContent>
@@ -298,23 +296,21 @@
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-	
-	<xsd:element name="parameterizationObject" type="tParameterizationObject"
+
+    <xsd:element name="parameterizationObject" type="tParameterizationObject"
                  substitutionGroup="bpmn:flowElement"/>
     <xsd:complexType name="tParameterizationObject">
         <xsd:annotation>
             <xsd:documentation>
-                Extension of the BPMN data object to store all data related to a execution result evaluation.
+                Extension of the BPMN data object to store quantum circuit parameters.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:complexContent>
             <xsd:extension base="bpmn:tDataObject">
-			    <xsd:sequence>
+                <xsd:sequence>
                     <xsd:element name="circuitParameters" type="xsd:string" minOccurs="0" maxOccurs="1"/>
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-	
-	
 </xsd:schema>
